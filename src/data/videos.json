@@ -3,7 +3,8 @@
         "id": "1",
         "userName": "Abhishek",
         "userImage": "/abhishek.jpg",
-        "video": {
+        "video": [{
+            "id":"0",
             "videoUrl": "/abhishek.mp4",
             "title": "Meme on Programming Langauge",
             "description": "Wait for pyhton turn",
@@ -13,13 +14,14 @@
             "earnings": 2100,
             "isPaid": true,
             "hashtag": "pythonontop"
-        }
+        }]
     },
     {
         "id": "2",
         "userName": "360WithBen",
         "userImage": "/360Withben.jpg",
-        "video": {
+        "video": [{
+            "id": "0",
             "videoUrl": "/360Withben.mp4",
             "title": "FAANG Dream",
             "description": "It is tough but on day it will true",
@@ -29,13 +31,14 @@
             "earnings": 2100,
             "isPaid": true,
             "hashtag": "FAANG"
-        }
+        }]
     },
     {
         "id": "3",
         "userName": "Broken Beast",
         "userImage": "/broken_beast.jpg",
-        "video": {
+        "video": [{
+            "id": "0",
             "videoUrl": "/broken_beast.mp4",
             "title": "DSA using C++ vs Java",
             "description": "which one easy Dsa with java or c++",
@@ -45,13 +48,14 @@
             "earnings": 2100,
             "isPaid": true,
             "hashtag": "c++vsjava"
-        }
+        }]
     },
     {
         "id": "4",
         "userName": "Class Boxes",
         "userImage": "/classboxes.jpg",
-        "video": {
+        "video": [{
+            "id": "0",
             "videoUrl": "/classboxes.mp4",
             "title": "DSA using C++ vs Java",
             "description": "which one easy Dsa with java or c++",
@@ -61,13 +65,14 @@
             "earnings": 2100,
             "isPaid": true,
             "hashtag": "c++vsjava"
-        }
+        }]
     },
     {
         "id": "5",
         "userName": "Code Beats",
         "userImage": "/codebeats.jpg",
-        "video": {
+        "video": [{
+            "id": "0",
             "videoUrl": "/codebeats.mp4",
             "title": "DSA using C++ vs Java",
             "description": "which one easy Dsa with java or c++",
@@ -77,13 +82,14 @@
             "earnings": 2100,
             "isPaid": true,
             "hashtag": "c++vsjava"
-        }
+        }]
     },
     {
         "id": "6",
         "userName": "Coder Baniya ",
         "userImage": "/coder_baniya.jpg",
-        "video": {
+        "video": [{
+            "id": "0",
             "videoUrl": "/coder_baniya.mp4",
             "title": "DSA using C++ vs Java",
             "description": "which one easy Dsa with java or c++",
@@ -93,6 +99,76 @@
             "earnings": 2100,
             "isPaid": true,
             "hashtag": "c++vsjava"
-        }
+        }]
+    },
+    {
+        "id": "7",
+        "userName": "CodingWithByte",
+        "userImage": "/CodingWithByte.jpg",
+        "video": [{
+            "id": "0",
+            "videoUrl": "/codingwithbyte.mp4",
+            "title": "DSA using C++ vs Java",
+            "description": "which one easy Dsa with java or c++",
+            "likes": 200000,
+            "comments": 1300,
+            "shares": 456,
+            "earnings": 2100,
+            "isPaid": true,
+            "hashtag": "c++vsjava"
+        }]
+    },
+    
+    {
+        "id": "8",
+        "userName": "Exam Rider",
+        "userImage": "/exam_rider.jpg",
+        "video": [{
+            "id": "0",
+            "videoUrl": "/exam_rider.mp4",
+            "title": "DSA using C++ vs Java",
+            "description": "which one easy Dsa with java or c++",
+            "likes": 200000,
+            "comments": 1300,
+            "shares": 456,
+            "earnings": 2100,
+            "isPaid": true,
+            "hashtag": "c++vsjava"
+        }]
+    },
+    
+    {
+        "id": "10",
+        "userName": "Vast Coding",
+        "userImage": "/VastCoding.jpg",
+        "video": [{
+            "id": "0",
+            "videoUrl": "/vastcoding.mp4",
+            "title": "DSA using C++ vs Java",
+            "description": "which one easy Dsa with java or c++",
+            "likes": 200000,
+            "comments": 1300,
+            "shares": 456,
+            "earnings": 2100,
+            "isPaid": true,
+            "hashtag": "c++vsjava"
+        }]
+    },
+    {
+        "id": "11",
+        "userName": "Web Devlogy",
+        "userImage": "/WebDevology.jpg",
+        "video":[ {
+            "id": "0",
+            "videoUrl": "/Webdevlogy.mp4",
+            "title": "DSA using C++ vs Java",
+            "description": "which one easy Dsa with java or c++",
+            "likes": 200000,
+            "comments": 1300,
+            "shares": 456,
+            "earnings": 2100,
+            "isPaid": true,
+            "hashtag": "c++vsjava"
+        }]
     }
 ]

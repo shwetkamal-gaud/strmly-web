@@ -1,9 +1,10 @@
-import { Heart, IndianRupee, Maximize, MessageCircle, Plus, Send, Volume2,  VolumeX } from 'lucide-react';
-import  { useEffect, useRef, useState } from 'react';
+import { Heart, IndianRupee, Maximize, MessageCircle, Plus, Send, Volume2, VolumeX } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function VideoCard({ video }: { video: any }) {
     const videoRef = useRef<HTMLVideoElement>(null);
-    const [muted, setMuted] = useState(false);
+    const [muted, setMuted] = useState(true);
     const [playing, setPlaying] = useState(true);
     const [likeCount, setLikeCount] = useState(video.likes);
     const [liked, setLiked] = useState(false);
@@ -15,7 +16,7 @@ export default function VideoCard({ video }: { video: any }) {
         const success = await fakeLikeAPI();
 
         if (!success) {
-            // rollback
+
             setLikeCount(original);
             setLiked((prev) => !prev);
             alert("Failed to update like.");
@@ -25,7 +26,7 @@ export default function VideoCard({ video }: { video: any }) {
     const fakeLikeAPI = () => {
         return new Promise<boolean>((resolve) =>
             setTimeout(() => resolve(Math.random() > 0.1), 700)
-        ); // 90% success rate
+        );
     };
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -47,7 +48,18 @@ export default function VideoCard({ video }: { video: any }) {
             if (videoRef.current) observer.unobserve(videoRef.current);
         };
     }, []);
+    useEffect(() => {
+        const enableSoundOnFirstClick = () => {
+            setMuted(false);
+            window.removeEventListener('click', enableSoundOnFirstClick);
+        };
 
+        window.addEventListener('click', enableSoundOnFirstClick);
+
+        return () => {
+            window.removeEventListener('click', enableSoundOnFirstClick);
+        };
+    }, []);
     const togglePlay = () => {
         const vid = videoRef.current;
         if (!vid) return;
@@ -65,13 +77,14 @@ export default function VideoCard({ video }: { video: any }) {
     };
 
     return (
-        <div className="relative w-full h-full bg-black">
+        <div className="relative h-full bg-black">
             <video
                 ref={videoRef}
                 src={video.videoUrl}
                 className="w-full h-full object-cover"
                 muted={muted}
                 loop
+                autoPlay
                 playsInline
                 onClick={togglePlay}
             />
@@ -83,11 +96,15 @@ export default function VideoCard({ video }: { video: any }) {
                     <div className='flex flex-col items-center'><IndianRupee /> {video.earnings}</div>
                 </div>
                 <div className=" flex justify-between gap-2 items-end left-0   text-white">
-                    <div className='flex flex-col'>
-                        <div className='space-x-1'>
+                    <div className='flex flex-col gap-2'>
+                        <div className='space-x-2 flex '>
                             <p>#{video.hashtag}</p>
                             <button className='border border-white rounded px-2'><Plus size={15} /></button>
                         </div>
+                        <Link to={`/profile/${video.userName}`} className='flex gap-2'>
+                            <img src={video.userImage} alt={video.userName} className='w-8 h-8 rounded-full' />
+                            <p className="font-semibold">@{video.userName}</p>
+                        </Link>
                         <p className="font-bold text-lg">{video.title}</p>
                         <p className="line-clamp-2 break text-sm">{video.description}</p>
                     </div>
@@ -99,7 +116,7 @@ export default function VideoCard({ video }: { video: any }) {
             </div>
             <div className="absolute top-2 right-4 flex gap-4">
                 <button onClick={toggleMute}>
-                    
+
                     {muted ? <VolumeX className='text-white' /> : <Volume2 className='text-white' />}
                 </button>
             </div>
