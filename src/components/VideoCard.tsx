@@ -1,11 +1,12 @@
 import { Heart, IndianRupee, Maximize, MessageCircle, Plus, Send, Volume2, VolumeX } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import type { Video } from '../types/type';
 
-export default function VideoCard({ video }: { video: any }) {
+
+export default function VideoCard({ video }: { video: Video }) {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [muted, setMuted] = useState(true);
-    const [playing, setPlaying] = useState(true);
     const [likeCount, setLikeCount] = useState(video.likes);
     const [liked, setLiked] = useState(false);
     const handleLike = async () => {
@@ -65,10 +66,10 @@ export default function VideoCard({ video }: { video: any }) {
         if (!vid) return;
         if (vid.paused) {
             vid.play();
-            setPlaying(true);
+            
         } else {
             vid.pause();
-            setPlaying(false);
+            
         }
     };
 

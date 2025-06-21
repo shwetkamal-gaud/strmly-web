@@ -2,9 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 import mockData from '../data/videos.json';
 import VideoCard from './VideoCard';
 import BottomNav from './BottomNav';
+import type {  Video } from '../types/type';
 
 const Feed = () => {
-    const [users, setUser] = useState<any[]>([]);
+    const [users, setUser] = useState<Video[]>([]);
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(1);
     const loaderRef = useRef<HTMLDivElement | null>(null);
@@ -29,10 +30,8 @@ const Feed = () => {
             if (newVideos.length === 0) {
                 setHasMore(false);
             } else {
-                setUser((prev) => [...prev, ...newVideos]);
-                
+                setUser((prev) => [...prev, ...newVideos]); 
             }
-
             setLoading(false);
         }, 800);
     };
@@ -59,7 +58,8 @@ const Feed = () => {
         <div className="relative min-h-screen w-full flex flex-col items-center">
             <div>
                 <div className="h-screen overflow-y-auto  flex flex-col snap-y no-scrollbar snap-mandatory">
-                    {users.map((video, index) => (
+                    
+                    {users.map((video: Video, index) => (
                         <div key={`${video.id}-${index}`} className="snap-start   h-screen">
                             <VideoCard video={video} />
                         </div>
